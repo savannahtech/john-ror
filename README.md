@@ -9,18 +9,6 @@ The current implementation retrieves all hits for the user since the beginning o
 ##### 2. Caching:
 Implement caching to reduce the number of actual database queries.
 
-Here's the optimized code:
-
-```
-class User < ApplicationRecord
-  has_many :hits
-
-  def count_hits
-    start = Time.now.beginning_of_month
-    hits.where('created_at >= ?', start).count
-  end
-end
-```
 
 ### Task #2: Resolve "Over Quota" Error after Quota Reset
 #### Issue:
